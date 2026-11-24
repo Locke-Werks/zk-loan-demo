@@ -1,0 +1,25 @@
+zk-loan-demo
+
+This product includes the zk-loan example from midnightntwrk/midnight-examples
+(https://github.com/midnightntwrk/midnight-examples), commit
+df56a534caa58b50f8fb738312be84abfe7108de, Copyright (C) Midnight Foundation,
+licensed under the Apache License, Version 2.0.
+
+Files from upstream are kept with their original copyright headers. The Compact
+contract (contract/zk-loan.compact, contract/schnorr.compact) is unmodified.
+
+Changes made to upstream files, so the example builds outside its monorepo:
+
+- package.json: renamed, description and license added, the monorepo-only
+  "validate" script removed, and the monorepo root's npm overrides for the
+  ledger 9 packages copied in.
+- tsconfig.json: the monorepo's tsconfig.base.json inlined.
+- vitest.config.ts: environment files are read from this repository's root
+  instead of two directories up.
+- src/wallet.ts: wallet sync state is cached in this repository's root
+  (.wallet-state/) instead of the monorepo root.
+- README.md moved to docs/UPSTREAM-README.md.
+
+New files: src/demo.ts, docs/APPROACH.md, docs/HOW-IT-WORKS.md,
+docs/THREAT-MODEL.md, docs/DEMO.md, docs/RUNNING.md, docs/sample-session.txt,
+README.md, NOTICE, .gitignore, assets/zk-loan-demo.png.

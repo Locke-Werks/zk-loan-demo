@@ -1,0 +1,83 @@
+A real console session against a local Midnight network, recorded 2026-11-24.
+Colour codes stripped. Nothing else edited, apart from dropping a few lines of
+RPC client noise printed during the wallet sync.
+
+$ npm run demo
+
+  zk-loan setup (network: local)
+  Starting fee wallet ... 0.0s
+  Syncing fee wallet ... 0.4s
+  Deploying zk-loan contract (lender becomes admin) ... 17.2s
+  Lender registers the bureau public key on chain ... 17.1s
+
+  READY  contract 82a81c1c066402f2718d361854ddb0d8f69e6ea5baef9fed701fe84d25f9e7c4
+  type help for commands
+
+zkloan> profile alice 720 2500 36
+  PASS  Bureau signed Alice's profile, bound to identity a20aad4e69...d1ba52
+  PRIVATE, Alice's machine only:  score 720, income 2500/mo, 36 months
+  bureau signature: R.x=41589012181865...  s=44723264561627...
+
+zkloan> apply alice 5000
+  Alice proves locally and submits a request for 5000 ... 18.6s
+  PASS  Proof verified on chain.
+  PUBLIC ledger:  borrower a20aad4e69...d1ba52  loan #1  Approved  amount 5000
+
+zkloan> profile dave 540 1200 6
+  PASS  Bureau signed Dave's profile, bound to identity 6248a1071a...8c9e41
+  PRIVATE, Dave's machine only:  score 540, income 1200/mo, 6 months
+  bureau signature: R.x=58014564832980...  s=57792569469779...
+
+zkloan> apply dave 3000
+  Dave proves locally and submits a request for 3000 ... 17.3s
+  PASS  Proof verified on chain.
+  PUBLIC ledger:  borrower 6248a1071a...8c9e41  loan #1  Rejected  amount 0
+
+zkloan> profile bob 560 1300 8
+  PASS  Bureau signed Bob's profile, bound to identity 35078f8755...747067
+  PRIVATE, Bob's machine only:  score 560, income 1300/mo, 8 months
+  bureau signature: R.x=76125041149163...  s=37952658699129...
+
+zkloan> forge bob 800
+  Bob changes score 560 to 800. The bureau signature is unchanged.
+  PRIVATE, Bob's machine only:  score 800, income 1300/mo, 8 months
+  bureau signature: R.x=76125041149163...  s=37952658699129...
+
+zkloan> apply bob 9000
+  Bob proves locally and submits a request for 9000 ... 0.1s
+  BLOCKED  No valid proof. failed assert: Invalid attestation signature
+  PUBLIC ledger:  no record for borrower 35078f8755...747067
+
+zkloan> steal carol alice
+  Carol now holds a byte-for-byte copy of Alice's profile and bureau signature.
+  PRIVATE, Carol's machine only:  score 720, income 2500/mo, 36 months
+  bureau signature: R.x=41589012181865...  s=44723264561627...
+
+zkloan> apply carol 5000
+  Carol proves locally and submits a request for 5000 ... 0.0s
+  BLOCKED  No valid proof. failed assert: Invalid attestation signature
+  PUBLIC ledger:  no record for borrower 302ee08791...39c93b
+
+zkloan> apply alice 15000
+  Alice proves locally and submits a request for 15000 ... 18.5s
+  PASS  Proof verified on chain.
+  PUBLIC ledger:  borrower a20aad4e69...d1ba52  loan #1  Approved  amount 5000
+  PUBLIC ledger:  borrower a20aad4e69...d1ba52  loan #2  Proposed  amount 10000
+
+zkloan> accept alice 2
+  Alice accepts loan #2 ... 17.3s
+  PUBLIC ledger:  borrower a20aad4e69...d1ba52  loan #1  Approved  amount 5000
+  PUBLIC ledger:  borrower a20aad4e69...d1ba52  loan #2  Approved  amount 10000
+
+zkloan> ledger
+  Everything on the public ledger for this contract:
+  contract            82a81c1c066402f2718d361854ddb0d8f69e6ea5baef9fed701fe84d25f9e7c4
+  admin (hash only)   f09dae1053...d0d66f
+  registered bureaus  1
+  borrowers           2
+  PUBLIC ledger:  borrower a20aad4e69...d1ba52  loan #1  Approved  amount 5000
+  PUBLIC ledger:  borrower a20aad4e69...d1ba52  loan #2  Approved  amount 10000
+  PUBLIC ledger:  borrower 6248a1071a...8c9e41  loan #1  Rejected  amount 0
+  No names, scores, incomes, tenures or wallet links. Those columns do not exist.
+
+zkloan> exit
