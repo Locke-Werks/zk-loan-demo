@@ -1,7 +1,7 @@
-// Live interview console for the zk-loan contract on a local Midnight network.
+// Interactive demo console for the zk-loan contract on a local Midnight network.
 //
 // Setup (wallet sync, attestation provider, deploy, provider registration) runs
-// once and takes a minute or two, so start this before the call. After setup it
+// once and takes under a minute, so start it before presenting. After setup it
 // opens a `zkloan>` prompt; type `help` for the commands.
 //
 //   npm run demo

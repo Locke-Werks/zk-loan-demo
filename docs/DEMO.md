@@ -1,8 +1,8 @@
 # Presenting it live
 
-This is the run of show I wrote to present this on a call: about seven minutes, typed live, with what to say while each proof runs. It's here because how you present a security property is part of whether people believe it.
+This is the run of show I wrote for presenting it: about seven minutes, typed live, with what to say while each proof runs. It's here because how you present a security property is part of whether people believe it.
 
-## Before the call
+## Before you start
 
 ```
 sudo service docker start          # WSL without systemd: Docker doesn't survive a restart
@@ -95,7 +95,7 @@ Pick one and stop talking:
 
 **What's Compact?** Midnight's contract language, TypeScript-flavoured. Each circuit compiles to a ZK circuit plus TypeScript bindings. Private inputs come in through witnesses, and anything written to public state has to go through `disclose()`, so every leak is explicit in the source.
 
-**Why local and not testnet?** Reliability on a live call. Same contract, same proof system; `MIDNIGHT_NETWORK=preprod` runs it on Preprod.
+**Why local and not testnet?** Reliability in a live demo. Same contract, same proof system; `MIDNIGHT_NETWORK=preprod` runs it on Preprod.
 
 ## If it breaks
 
