@@ -8,7 +8,7 @@ The contract is `contract/zk-loan.compact`, about 300 lines of Compact plus the 
 - **The bureau** (the attestation provider in `attestation-api/`). Holds a Jubjub key pair. Looks at a borrower's credit data off chain and signs it.
 - **The lender.** Deployed the contract and is its admin. Decides which bureaus to trust by registering their public keys on chain. Sees outcomes, never profiles.
 
-The wallet that pays transaction fees is a fourth thing, and deliberately not an identity. More on that below.
+The wallet that pays transaction fees is a fourth thing, and deliberatly not an identity. More on that below.
 
 ## Identity is a hash, not a wallet
 

@@ -49,7 +49,7 @@ These are real, and I'd raise them myself rather than wait to be asked.
 
 **1. A borrower's loans are linkable to each other.** Every loan under the same secret and PIN lands under the same key. An observer can count a borrower's loans, see their amounts and their history of rejections. `changePin` moves loans to a new key, but that transaction names the old and new keys together, so the link survives. Properly unlinkable applications would need a fresh per-application identifier with a nullifier to stop double use. That's a meaningful redesign, not a patch.
 
-**2. Attestations never expire.** A bureau signature is valid forever. A borrower whose finances collapse can keep applying on a profile signed years ago. The fix is straightforward: add an epoch or expiry to the signed message and check it in-circuit against a value on the ledger.
+**2. Attestations never expire.** A bureau signature is valid forever. A borrower whose finances collapse can keep applying on a profile signed years ago. The fix is straightfoward: add an epoch or expiry to the signed message and check it in-circuit against a value on the ledger.
 
 **3. No revocation short of removing the bureau.** If one attestation was issued in error, the only lever is `removeProvider`, which kills every attestation that bureau ever signed. Per-attestation revocation needs a revocation set the circuit can check non-membership against, ideally without revealing which attestation is being checked.
 

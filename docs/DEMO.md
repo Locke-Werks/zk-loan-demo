@@ -83,7 +83,7 @@ Pick one and stop talking:
 
 **Why not encrypt the data on chain?** Encrypted data is still data. Keys leak, and ciphertext ages badly. Here the data never goes on chain at all, only a proof and an outcome.
 
-**Who trusts the bureau?** The lender does, explicitly, by registering its key. The circuit only accepts signatures from registered keys.
+**Who trusts the bureau?** The lender does, explicity, by registering its key. The circuit only accepts signatures from registered keys.
 
 **What stops one person applying under a hundred identities?** Every identity needs its own bureau signature, so the bureau is the Sybil gate. There's also an admin blacklist.
 

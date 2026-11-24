@@ -24,7 +24,7 @@ So the contract is theirs and unmodified. What I built is the instrument around 
 
 Before designing a single beat of the demo I ran a go/no-go spike: get Midnight's hello-world template deployed to a local network, end to end, on my machine. If the tooling fought me, I wanted to know on day one, not the night before.
 
-It fought me immediately, in useful ways:
+It fought me immediatly, in useful ways:
 
 - **No Docker on Windows, and no Compact compiler for Windows at all.** The proof server only ships as a container. I moved everything into WSL Debian, installed Docker Engine there, and started the daemon by hand because systemd is off in that distro. That last bit matters later: Docker doesn't survive a WSL restart, so it's a step in the runbook rather than an assumption.
 - **Compiler/runtime mismatch.** The latest compiler (0.36.1) emitted code the template's runtime library rejected ("expects 0.21.0, runtime is 0.16.0"). The template's own generator pinned 0.31.1, so I pinned to that and the deploy went through.
@@ -63,7 +63,7 @@ The first version was a scripted walkthrough: press Enter, the next beat runs. E
 
 It was also wrong for the audience. Watching someone press Enter proves they can press Enter. I wanted to type the commands live, so the room can see nothing is canned and can ask "what if you tried X" and get an answer on the spot.
 
-That forced a design question. Every new process would have to sync a wallet before doing anything, so separate CLI commands per step would mean dead air on every step. So the console does the slow setup once (sync the fee wallet, start the bureau, deploy, register the bureau's key) and then hands over a prompt:
+That forced a design question. Every new process would have to sync a wallet before doing anything, so seperate CLI commands per step would mean dead air on every step. So the console does the slow setup once (sync the fee wallet, start the bureau, deploy, register the bureau's key) and then hands over a prompt:
 
 ```
 profile <name> <score> <income> <months>
