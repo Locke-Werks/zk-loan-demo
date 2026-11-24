@@ -36,9 +36,8 @@ Using the reviewed upstream contract instead of writing a new one was a delibera
 1. **[docs/APPROACH.md](docs/APPROACH.md)**: how I went at the problem, what broke, and what I decided at each fork and why. If you only read one, read this.
 2. **[docs/HOW-IT-WORKS.md](docs/HOW-IT-WORKS.md)**: the contract walked through line by line: identity, the witness, the in-circuit signature check, what gets disclosed and what does not.
 3. **[docs/THREAT-MODEL.md](docs/THREAT-MODEL.md)**: parties, assets, every attack the console demonstrates, and the limitations I found that the contract does not address.
-4. **[docs/DEMO.md](docs/DEMO.md)**: the run of show for presenting it live, with talking points and the questions people ask.
-5. **[docs/RUNNING.md](docs/RUNNING.md)**: setup, commands, Preprod, and troubleshooting.
-6. **[docs/sample-session.txt](docs/sample-session.txt)**: a real, unedited console session, so you can see the output without installing anything.
+4. **[docs/RUNNING.md](docs/RUNNING.md)**: setup, commands, Preprod, and troubleshooting.
+5. **[docs/sample-session.txt](docs/sample-session.txt)**: a real, unedited console session, so you can see the output without installing anything.
 
 ## Quick start
 
